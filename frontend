@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<title>
+		Drag and Drop
+	</title>		
+	<script>
+		$(function() {
+			$( "#imageListId" ).sortable({
+			update: function(event, ui) {
+				getIdsOfImages();
+			}	
+			});
+		});
+		
+		function getIdsOfImages() {
+			var values = [];
+			$('.listitemClass').each(function (index) {
+				values.push($(this).attr("id")
+						.replace("imageNo", ""));
+			});
+			
+			$('#outputvalues').val(values);
+		}
+	</script>
+</head>
+	
+<body>
+
+	<div id = "imageListId">
+		<div id="imageNo1" class = "listitemClass">
+			<img src="images/image1.png" alt="">
+		</div>
+		
+		<div id="imageNo2" class = "listitemClass">
+			<img src="images/image2.png" alt="">
+		</div>
+
+		<div id="imageNo3" class = "listitemClass">
+			<img src="images/image3.png" alt="">
+		</div>
+
+		<div id="imageNo4" class = "listitemClass">
+			<img src="images/image4.png" alt="">
+		</div>
+
+		<div id="imageNo5" class = "listitemClass">
+			<img src="images/image5.png" alt="">
+		</div>
+
+		<div id="imageNo6" class = "listitemClass">
+			<img src="images/image6.png" alt="">
+		</div>
+	</div>
+		
+	<div id="outputDiv">
+		<b>Output of ID's of images : </b>
+		<input id="outputvalues" type="text" value="" />
+	</div>
+</body>
+
+</html>
